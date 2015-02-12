@@ -20,7 +20,8 @@ void TankDrive::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void TankDrive::Execute() {
   drive_->tank_drive(std::tuple<float, float>{control::get<control::DriveLeft>(oi_->main_joy_),
-      control::get<control::DriveRight>(oi_->main_joy_)}, true);
+                         control::get<control::DriveRight>(oi_->main_joy_)},
+                     true);
 }
 
 // Make this return true when this Command no longer needs to run execute()

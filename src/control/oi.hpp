@@ -17,6 +17,8 @@ class OI {
   static constexpr double accelerometer_angle_ = 0.;
  private:
   Button* brake_;
+  Button* winch_up_;
+  Button* winch_down_;
 };
 }  // namespace control
 }  // namespace isobot

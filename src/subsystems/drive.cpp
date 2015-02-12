@@ -10,8 +10,8 @@ namespace retrobotics {
 namespace isobot {
 namespace subsystems {
 Drive::Drive()
-    : Subsystem{"Drive"}, wheels_{new Talon{0}, new Talon{1}}, drive_{
-          new RobotDrive{std::get<0>(wheels_), std::get<1>(wheels_)}} {
+    : Subsystem{"Drive"}, wheels_{new Talon{0}, new Talon{1}},
+      drive_{new RobotDrive{std::get<0>(wheels_), std::get<1>(wheels_)}} {
 }
 
 void Drive::InitDefaultCommand() {

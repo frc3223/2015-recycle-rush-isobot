@@ -1,5 +1,5 @@
 #include "subsystems/winch.hpp"
-#include "commands/manualwinch.hpp"
+#include "commands/winchanalog.hpp"
 #include <Compressor.h>
 #include <iostream>
 #include <algorithm>
@@ -8,14 +8,13 @@ namespace retrobotics {
 namespace isobot {
 namespace subsystems {
 Winch::Winch()
-    : Subsystem{"Winch"}, winch_motor_{new Talon{2}}, winch_relay_up_{new Relay{
-        0}},
+    : Subsystem{"Winch"}, winch_motor_{new Talon{2}}, winch_relay_up_{new Relay{0}},
       winch_relay_down_{new Relay{1}} {
   compressor_ = new Compressor{0};
 }
 
 auto Winch::InitDefaultCommand() -> void {
-  SetDefaultCommand(new commands::ManualWinch{});
+  //SetDefaultCommand(new commands::WinchAnalog{});
 }
 
 auto Winch::set(float value) -> void {

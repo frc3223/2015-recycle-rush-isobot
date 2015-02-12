@@ -34,6 +34,8 @@ class DualStick {
   auto analog(control::DriveRight) const -> float;
   auto analog(control::Winch) const -> float;
   auto digital(control::Brake) const -> std::pair<Joystick*, uint32_t>;
+  auto digital(control::WinchUp) const -> std::pair<Joystick*, uint32_t>;
+  auto digital(control::WinchDown) const -> std::pair<Joystick*, uint32_t>;
 };
 }  // namespace control
 }  // namespace isobot

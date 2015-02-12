@@ -54,6 +54,7 @@ decltype(tuple_zip_helper(t1, t2, typename gens<sizeof...(A)>::type())) {
   return tuple_zip_helper(t1, t2, typename gens<sizeof...(A)>::type());
 }
 
-} // namespace tuple_utils
+}
+  // namespace tuple_utils
 
 #endif

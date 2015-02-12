@@ -1,14 +1,17 @@
-#ifndef RETROBOTICS_MANUAL_WINCH_HPP
-#define RETROBOTICS_MANUAL_WINCH_HPP
+#ifndef RETROBOTICS_COMMANDS_WINCH_DIGITAL_HPP
+#define RETROBOTICS_COMMANDS_WINCH_DIGITAL_HPP
 
 #include "base/commands_base.hpp"
 
 namespace retrobotics {
 namespace isobot {
 namespace commands {
-class ManualWinch : public Base {
+class WinchDigital : public Base {
+ private:
+  subsystems::WinchDir dir_;
+  float power_;
  public:
-  ManualWinch();
+  WinchDigital(subsystems::WinchDir dir);
   auto Initialize() -> void;
   auto Execute() -> void;
   auto IsFinished() -> bool;

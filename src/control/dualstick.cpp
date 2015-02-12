@@ -24,13 +24,19 @@ auto DualStick::analog(control::DriveRight) const -> float {
   return joy_right_->GetRawAxis(kJoyY);
 }
 auto DualStick::analog(control::Winch) const -> float {
-  return joy_left_->GetRawButton(kButtonCenter)
-      - joy_left_->GetRawButton(kButtonDown);
+  return joy_left_->GetRawButton(kButtonCenter) - joy_left_->GetRawButton(kButtonDown);
 }
-auto DualStick::digital(
-    control::Brake) const -> std::pair<Joystick*, uint32_t> {
+auto DualStick::digital(control::Brake) const -> std::pair<Joystick*, uint32_t> {
   constexpr auto kButtonCenter = DualStick::kButtonCenter;
   return {joy_right_, kButtonCenter};
+}
+auto DualStick::digital(control::WinchUp) const -> std::pair<Joystick*, uint32_t> {
+  constexpr auto kButtonCenter = DualStick::kButtonCenter;
+  return {joy_left_, kButtonCenter};
+}
+auto DualStick::digital(control::WinchDown) const -> std::pair<Joystick*, uint32_t> {
+  constexpr auto kButtonDown = DualStick::kButtonDown;
+  return {joy_left_, kButtonDown};
 }
 }  // namespace control
 }  // namespace isobot
