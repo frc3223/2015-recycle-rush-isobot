@@ -18,7 +18,7 @@ OI::OI()
   brake_->WhileHeld(new commands::Brake{});
   winch_up_->WhileHeld(new commands::WinchDigital{subsystems::WinchDir::kUp});
   winch_down_->WhileHeld(new commands::WinchDigital{subsystems::WinchDir::kDown});
-  winch_claw_->WhileHeld(new commands::WinchClaw{});
+  winch_claw_->ToggleWhenPressed(new commands::WinchClaw{});
 }
 }  // namespace control
 }  // namespace isobot

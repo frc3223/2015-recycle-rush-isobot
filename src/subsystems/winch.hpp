@@ -30,4 +30,6 @@ class Winch : public Subsystem {
 }
 }
 
+#include "subsystems/winch.ipp"
+
 #endif

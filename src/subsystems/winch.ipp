@@ -10,11 +10,11 @@ namespace isobot {
 namespace subsystems {
 template<typename N>
 auto Winch::in_bounds(int32_t current_encoder, N direction) -> bool {
-  if (std::signbit(direction)) {
-    if (current_encoder < top_bound_)
-      return false;
-  } else {
+  if (std::signbit(direction)) { // down
     if (current_encoder > bottom_bound_)
+      return false;
+  } else { // up
+    if (current_encoder < top_bound_)
       return false;
   }
   return true;

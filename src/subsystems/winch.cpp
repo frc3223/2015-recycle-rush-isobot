@@ -35,5 +35,3 @@ auto Winch::set(float value) -> void {
 }
 }
 
-#include "subsystems/winch.ipp"
-

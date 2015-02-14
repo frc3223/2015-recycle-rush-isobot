@@ -15,4 +15,4 @@ auto Drive::tank_drive(Container values, bool squared_inputs) -> void {
 }  // namespace isobot
 }  // namepsace retrobotics
 
-#endif /* SRC_SUBSYSTEMS_DRIVE_IPP_ */
+#endif
