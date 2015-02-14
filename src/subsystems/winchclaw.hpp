@@ -4,8 +4,7 @@
 #include <Commands/Subsystem.h>
 #include <Talon.h>
 #include <Compressor.h>
-#include <Relay.h>
-#include <Encoder.h>
+#include <Solenoid.h>
 
 namespace retrobotics {
 namespace isobot {
@@ -18,8 +17,8 @@ enum class WinchDir {
 class WinchClaw : public Subsystem {
  private:
   Compressor* compressor_;
-  Relay* relay_up_;
-  Relay* relay_down_;
+  Solenoid* up_;
+  Solenoid* down_;
  public:
   WinchClaw();
   auto InitDefaultCommand() -> void;

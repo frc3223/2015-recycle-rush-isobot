@@ -8,7 +8,7 @@ namespace isobot {
 namespace commands {
 class WinchMaintain : public Base {
  public:
-  WinchMaintain(subsystems::WinchDir dir);
+  WinchMaintain();
   auto Initialize() -> void;
   auto Execute() -> void;
   auto IsFinished() -> bool;

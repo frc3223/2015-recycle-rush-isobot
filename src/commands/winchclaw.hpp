@@ -8,8 +8,10 @@ namespace isobot {
 namespace commands {
 
 class WinchClaw : public Base {
+ private:
+  bool default_up_;
  public:
-  WinchClaw();
+  WinchClaw(bool default_up = false);
   auto Initialize() -> void;
   auto Execute() -> void;
   auto IsFinished() -> bool;

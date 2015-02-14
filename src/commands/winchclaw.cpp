@@ -4,8 +4,8 @@
 namespace retrobotics {
 namespace isobot {
 namespace commands {
-WinchClaw::WinchClaw()
-    : Base{"WinchClaw"} {
+WinchClaw::WinchClaw(bool default_up)
+    : Base{"WinchClaw"}, default_up_{default_up} {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(chassis);
   Requires(winch_claw_);
@@ -13,7 +13,7 @@ WinchClaw::WinchClaw()
 
 // Called just before this Command runs the first time
 auto WinchClaw::Initialize() -> void {
-  winch_claw_->set(subsystems::WinchDir::kUp);
+  winch_claw_->set(default_up_ ? subsystems::WinchDir::kDown : subsystems::WinchDir::kUp);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -27,7 +27,7 @@ auto WinchClaw::IsFinished() -> bool {
 }
 
 auto WinchClaw::done() -> void {
-  winch_claw_->set(subsystems::WinchDir::kUp);
+  winch_claw_->set(default_up_ ? subsystems::WinchDir::kUp : subsystems::WinchDir::kDown);
 }
 
 // Called once after isFinished returns true

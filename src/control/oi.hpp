@@ -19,6 +19,7 @@ class OI {
   Button* brake_;
   Button* winch_up_;
   Button* winch_down_;
+  Button* winch_claw_;
 };
 }  // namespace control
 }  // namespace isobot

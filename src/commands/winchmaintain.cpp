@@ -1,4 +1,4 @@
-#include "commands/winchdigital.hpp"
+#include "commands/winchmaintain.hpp"
 #include "base/commands_base.hpp"
 #include "control/control.hpp"
 #include <iostream>
@@ -6,7 +6,7 @@
 namespace retrobotics {
 namespace isobot {
 namespace commands {
-WinchMaintain::WinchMaintain(subsystems::WinchDir dir)
+WinchMaintain::WinchMaintain()
     : Base{"WinchMaintain"} {
   Requires(winch_);
 }

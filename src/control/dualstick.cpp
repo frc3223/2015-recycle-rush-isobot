@@ -34,8 +34,8 @@ auto DualStick::digital(control::Brake) const -> std::pair<Joystick*, uint32_t> 
   return {joy_left_, kButtonTrig};
 }
 auto DualStick::digital(control::WinchUp) const -> std::pair<Joystick*, uint32_t> {
-  constexpr auto kButtonTrig = DualStick::kButtonTrig;
-  return {joy_right_, kButtonTrig};
+  constexpr auto kButtonCenter = DualStick::kButtonCenter;
+  return {joy_right_, kButtonCenter};
 }
 auto DualStick::digital(control::WinchDown) const -> std::pair<Joystick*, uint32_t> {
   constexpr auto kButtonDown = DualStick::kButtonDown;
