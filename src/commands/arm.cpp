@@ -13,28 +13,28 @@ Arm::Arm()
 }
 
 // Called just before this Command runs the first time
-void Arm::Initialize() {
+auto Arm::Initialize() -> void {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Arm::Execute() {
+auto Arm::Execute() -> void {
   arm_->set(control::get<control::Arm>(oi_->main_joy_));
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Arm::IsFinished() {
+auto Arm::IsFinished() -> bool {
   return false;
 }
 
 // Called once after isFinished returns true
-void Arm::End() {
+auto Arm::End() -> void {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Arm::Interrupted() {
+auto Arm::Interrupted() -> void {
 
 }
 }  // namespace commands

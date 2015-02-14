@@ -12,32 +12,32 @@ WinchClaw::WinchClaw()
 }
 
 // Called just before this Command runs the first time
-void WinchClaw::Initialize() {
+auto WinchClaw::Initialize() -> void {
   winch_claw_->set(subsystems::WinchDir::kUp);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void WinchClaw::Execute() {
+auto WinchClaw::Execute() -> void {
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool WinchClaw::IsFinished() {
+auto WinchClaw::IsFinished() -> bool {
   return false;
 }
 
-void WinchClaw::done() {
+auto WinchClaw::done() -> void {
   winch_claw_->set(subsystems::WinchDir::kUp);
 }
 
 // Called once after isFinished returns true
-void WinchClaw::End() {
+auto WinchClaw::End() -> void {
   done();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void WinchClaw::Interrupted() {
+auto WinchClaw::Interrupted() -> void {
   done();
 }
 }  // namespace commands

@@ -1,6 +1,8 @@
 #include "base/commands_base.hpp"
 #include "subsystems/drive.hpp"
 #include "subsystems/winch.hpp"
+#include "subsystems/winchclaw.hpp"
+#include "subsystems/arm.hpp"
 #include "control/oi.hpp"
 
 namespace retrobotics {
@@ -22,7 +24,7 @@ Base::Base()
 
 }
 
-void Base::init() {
+auto Base::init() -> void {
   // Create a single static instance of all of your subsystems. The following
   // line should be repeated for each subsystem in the project.
   drive_ = new subsystems::Drive{};

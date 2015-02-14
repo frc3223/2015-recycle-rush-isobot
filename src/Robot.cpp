@@ -10,26 +10,26 @@ class Robot : public IterativeRobot {
   Command* autonomous_command_;
   LiveWindow* lw_;
 
-  void RobotInit() {
+  auto RobotInit() -> void {
     retrobotics::isobot::commands::Base::init();
     autonomous_command_ = nullptr;
     lw_ = LiveWindow::GetInstance();
   }
 
-  void DisabledPeriodic() {
+  auto DisabledPeriodic() -> void {
     Scheduler::GetInstance()->Run();
   }
 
-  void AutonomousInit() {
+  auto AutonomousInit() -> void {
     if (autonomous_command_ != nullptr)
       autonomous_command_->Start();
   }
 
-  void AutonomousPeriodic() {
+  auto AutonomousPeriodic() -> void {
     Scheduler::GetInstance()->Run();
   }
 
-  void TeleopInit() {
+  auto TeleopInit() -> void {
     // This makes sure that the autonomous stops running when
     // teleop starts running. If you want the autonomous to
     // continue until interrupted by another command, remove
@@ -38,11 +38,11 @@ class Robot : public IterativeRobot {
       autonomous_command_->Cancel();
   }
 
-  void TeleopPeriodic() {
+  auto TeleopPeriodic() -> void {
     Scheduler::GetInstance()->Run();
   }
 
-  void TestPeriodic() {
+  auto TestPeriodic() -> void {
     lw_->Run();
   }
 };

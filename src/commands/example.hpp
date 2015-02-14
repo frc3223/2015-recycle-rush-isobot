@@ -10,11 +10,11 @@ namespace commands {
 class Example : public Base {
  public:
   Example();
-  void Initialize();
-  void Execute();
-  bool IsFinished();
-  void End();
-  void Interrupted();
+  auto Initialize() -> void;
+  auto Execute() -> void;
+  auto IsFinished() -> bool;
+  auto End() -> void;
+  auto Interrupted() -> void;
 };
 }  // namespace commands
 }  // namespace isobot

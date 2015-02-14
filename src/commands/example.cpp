@@ -11,28 +11,28 @@ Example::Example()
 }
 
 // Called just before this Command runs the first time
-void Example::Initialize() {
+auto Example::Initialize() -> void {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Example::Execute() {
+auto Example::Execute() -> void {
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Example::IsFinished() {
+auto Example::IsFinished() -> bool {
   return false;
 }
 
 // Called once after isFinished returns true
-void Example::End() {
+auto Example::End() -> void {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Example::Interrupted() {
+auto Example::Interrupted() -> void {
 
 }
 }  // namespace commands

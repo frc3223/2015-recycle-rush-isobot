@@ -10,12 +10,12 @@ namespace commands {
 class WinchClaw : public Base {
  public:
   WinchClaw();
-  void Initialize();
-  void Execute();
-  bool IsFinished();
-  void done();
-  void End();
-  void Interrupted();
+  auto Initialize() -> void;
+  auto Execute() -> void;
+  auto IsFinished() -> bool;
+  auto done() -> void;
+  auto End() -> void;
+  auto Interrupted() -> void;
 };
 }  // namespace commands
 }  // namespace isobot

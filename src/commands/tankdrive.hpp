@@ -10,11 +10,11 @@ namespace commands {
 class TankDrive : public Base {
  public:
   TankDrive();
-  void Initialize();
-  void Execute();
-  bool IsFinished();
-  void End();
-  void Interrupted();
+  auto Initialize() -> void;
+  auto Execute() -> void;
+  auto IsFinished() -> bool;
+  auto End() -> void;
+  auto Interrupted() -> void;
 };
 }  // namespace commands
 }  // namespace isobot

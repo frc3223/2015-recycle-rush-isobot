@@ -9,7 +9,7 @@ Example::Example()
 
 }
 
-void Example::InitDefaultCommand() {
+auto Example::InitDefaultCommand() -> void {
   // Set the default command for a subsystem here.
   //SetDefaultCommand(new MySpecialCommand());
 }

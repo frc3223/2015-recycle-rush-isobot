@@ -12,7 +12,7 @@ class Example : public Subsystem {
   // for methods that implement subsystem capabilities
  public:
   Example();
-  void InitDefaultCommand();
+  auto InitDefaultCommand() -> void;
 };
 }  // namespace subsystems
 }  // namespace isobot

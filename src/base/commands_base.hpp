@@ -5,6 +5,7 @@
 #include <Commands/Command.h>
 #include "subsystems/drive.hpp"
 #include "subsystems/winch.hpp"
+#include "subsystems/winchclaw.hpp"
 #include "subsystems/arm.hpp"
 #include "control/oi.hpp"
 
@@ -20,7 +21,7 @@ class Base : public Command {
  public:
   Base(char const *name);
   Base();
-  static void init();
+  static auto init() -> void;
   // Create a single static instance of all of your subsystems
   static subsystems::Drive* drive_;
   static subsystems::Winch* winch_;

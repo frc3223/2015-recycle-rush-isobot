@@ -10,11 +10,6 @@
 namespace retrobotics {
 namespace isobot {
 namespace subsystems {
-enum class WinchDir {
-  kUp,
-  kDown,
-};
-
 class Winch : public Subsystem {
  private:
   Talon* motor_;

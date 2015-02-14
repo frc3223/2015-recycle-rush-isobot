@@ -13,30 +13,30 @@ TankDrive::TankDrive()
 }
 
 // Called just before this Command runs the first time
-void TankDrive::Initialize() {
+auto TankDrive::Initialize() -> void {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void TankDrive::Execute() {
+auto TankDrive::Execute() -> void {
   drive_->tank_drive(std::tuple<float, float>{control::get<control::DriveLeft>(oi_->main_joy_),
                          control::get<control::DriveRight>(oi_->main_joy_)},
                      true);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool TankDrive::IsFinished() {
+auto TankDrive::IsFinished() -> bool {
   return false;
 }
 
 // Called once after isFinished returns true
-void TankDrive::End() {
+auto TankDrive::End() -> void {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void TankDrive::Interrupted() {
+auto TankDrive::Interrupted() -> void {
 
 }
 }  // namespace commands

@@ -12,7 +12,7 @@ class Arm : public Subsystem {
   Talon* motor_;
  public:
   Arm();
-  void InitDefaultCommand();
+  auto InitDefaultCommand() -> void;
   auto set(float value) -> void;
 };
 }  // namespace subsystems

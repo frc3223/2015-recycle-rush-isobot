@@ -9,12 +9,12 @@ Arm::Arm()
 
 }
 
-void Arm::InitDefaultCommand() {
+auto Arm::InitDefaultCommand() -> void {
   // Set the default command for a subsystem here.
   //SetDefaultCommand(new MySpecialCommand());
 }
 
-void Arm::set(float value) {
+auto Arm::set(float value) -> void {
   motor_->Set(value);
 }
 

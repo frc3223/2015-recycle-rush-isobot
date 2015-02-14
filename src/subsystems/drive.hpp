@@ -15,11 +15,12 @@ class Drive : public Subsystem {
   RobotDrive* drive_;
  public:
   Drive();
-  void InitDefaultCommand();
+  auto InitDefaultCommand() -> void;
   template<int n>
-  void set_wheel(float power);
-  void set(std::tuple<float, float> powers);
-  void tank_drive(auto values, bool squared_inputs);
+  auto set_wheel(float power) -> void;
+  auto set(std::tuple<float, float> powers) -> void;
+  template<typename Container>
+  auto tank_drive(Container values, bool squared_inputs) -> void;
 };
 }  // namespace subsystems
 }  // namespace isobot

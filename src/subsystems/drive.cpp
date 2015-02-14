@@ -14,18 +14,18 @@ Drive::Drive()
       drive_{new RobotDrive{std::get<0>(wheels_), std::get<1>(wheels_)}} {
 }
 
-void Drive::InitDefaultCommand() {
+auto Drive::InitDefaultCommand() -> void {
   // Set the default command for a subsystem here.
   //SetDefaultCommand(new MySpecialCommand());
   SetDefaultCommand(new commands::TankDrive{});
 }
 
 template<int n>
-void Drive::set_wheel(float power) {
+auto Drive::set_wheel(float power) -> void {
   std::get<n>(wheels_)->Set(power);
 }
 
-void Drive::set(std::tuple<float, float> powers) {
+auto Drive::set(std::tuple<float, float> powers) -> void {
   auto wheels_powers = tuple_utils::tuple_zip(wheels_, powers);
   tuple_utils::for_each(wheels_powers, [](auto wheel_power) {
     Talon* wheel = wheel_power.first;
