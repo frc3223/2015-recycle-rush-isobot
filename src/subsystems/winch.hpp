@@ -6,6 +6,7 @@
 #include <Compressor.h>
 #include <Relay.h>
 #include <Encoder.h>
+#include <cstdint>
 
 namespace retrobotics {
 namespace isobot {
@@ -14,9 +15,11 @@ class Winch : public Subsystem {
  private:
   Talon* motor_;
   Encoder* encoder_;
+  int32_t previous_encoder_;
  public:
   Winch();
   auto InitDefaultCommand() -> void;
+  auto maintain() -> void;
   auto set(float value) -> void;
 };
 }
