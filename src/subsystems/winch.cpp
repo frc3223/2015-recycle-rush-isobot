@@ -1,16 +1,15 @@
 #include "subsystems/winch.hpp"
 #include "commands/winchanalog.hpp"
 #include <Compressor.h>
-#include <iostream>
+#include <Encoder.h>
+#include <cmath>
 #include <algorithm>
 
 namespace retrobotics {
 namespace isobot {
 namespace subsystems {
 Winch::Winch()
-    : Subsystem{"Winch"}, winch_motor_{new Talon{2}}, winch_relay_up_{new Relay{0}},
-      winch_relay_down_{new Relay{1}} {
-  compressor_ = new Compressor{0};
+    : Subsystem{"Winch"}, motor_{new Talon{2}}, encoder_{new Encoder{1, 2}} {
 }
 
 auto Winch::InitDefaultCommand() -> void {
@@ -18,20 +17,14 @@ auto Winch::InitDefaultCommand() -> void {
 }
 
 auto Winch::set(float value) -> void {
-  winch_motor_->Set(std::min(value + .1f, 1.f));
-}
-
-auto Winch::claw(WinchDir dir) -> void {
-  switch (dir) {
-    case WinchDir::kUp:
-      winch_relay_up_->Set(Relay::kOn);
-      winch_relay_down_->Set(Relay::kOff);
-      break;
-    case WinchDir::kDown:
-      winch_relay_up_->Set(Relay::kOff);
-      winch_relay_down_->Set(Relay::kOn);
-      break;
+  if (std::signbit(value)) {
+    if (encoder_->Get() < -1700)
+      return;
+  } else {
+    if (encoder_->Get() > 0)
+      return;
   }
+  motor_->Set(std::min(value + .1f, 1.f));
 }
 }
 }

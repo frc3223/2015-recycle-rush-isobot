@@ -1,4 +1,4 @@
-#include "commands/winchmanual.hpp"
+#include "commands/winchanalog.hpp"
 #include "base/commands_base.hpp"
 #include "control/control.hpp"
 #include <iostream>

@@ -1,5 +1,5 @@
-#ifndef RETROBOTICS_ISOBOT_SUBSYSTEMS_WINCH_HPP
-#define RETROBOTICS_ISOBOT_SUBSYSTEMS_WINCH_HPP
+#ifndef RETROBOTICS_ISOBOT_SUBSYSTEMS_WINCH_CLAW_HPP
+#define RETROBOTICS_ISOBOT_SUBSYSTEMS_WINCH_CLAW_HPP
 
 #include <Commands/Subsystem.h>
 #include <Talon.h>
@@ -15,14 +15,15 @@ enum class WinchDir {
   kDown,
 };
 
-class Winch : public Subsystem {
+class WinchClaw : public Subsystem {
  private:
-  Talon* motor_;
-  Encoder* encoder_;
+  Compressor* compressor_;
+  Relay* relay_up_;
+  Relay* relay_down_;
  public:
-  Winch();
+  WinchClaw();
   auto InitDefaultCommand() -> void;
-  auto set(float value) -> void;
+  auto set(WinchDir dir) -> void;
 };
 }
 }

@@ -12,7 +12,7 @@ WinchDigital::WinchDigital(subsystems::WinchDir dir)
 }
 
 auto WinchDigital::Initialize() -> void {
-  power_{0.f};
+  power_ = 0.f;
 }
 
 auto WinchDigital::Execute() -> void {
@@ -35,12 +35,15 @@ auto WinchDigital::IsFinished() -> bool {
   return false;
 }
 
-auto WinchDigital::End() -> void {
+auto WinchDigital::done() -> void {
   winch_->set(0.f);
 }
 
+auto WinchDigital::End() -> void {
+  done();
+}
 auto WinchDigital::Interrupted() -> void {
-  winch_->set(0.f);
+  done();
 }
 }
 }

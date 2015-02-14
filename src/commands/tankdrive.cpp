@@ -1,6 +1,6 @@
 #include "commands/tankdrive.hpp"
-#include "subsystems/drive.hpp"
-#include "control/oi.hpp"
+#include "base/commands_base.hpp"
+#include "control/control.hpp"
 
 namespace retrobotics {
 namespace isobot {

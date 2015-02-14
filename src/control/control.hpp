@@ -25,6 +25,9 @@ struct DriveRight {
 struct Winch {
   static constexpr bool analog = true;
 };
+struct Arm {
+  static constexpr bool analog = true;
+};
 
 struct Brake {
   static constexpr bool digital = true;
@@ -33,6 +36,9 @@ struct WinchUp {
   static constexpr bool digital = true;
 };
 struct WinchDown {
+  static constexpr bool digital = true;
+};
+struct WinchClaw {
   static constexpr bool digital = true;
 };
 struct TurnLeft {

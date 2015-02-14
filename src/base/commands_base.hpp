@@ -5,6 +5,7 @@
 #include <Commands/Command.h>
 #include "subsystems/drive.hpp"
 #include "subsystems/winch.hpp"
+#include "subsystems/arm.hpp"
 #include "control/oi.hpp"
 
 namespace retrobotics {
@@ -21,9 +22,11 @@ class Base : public Command {
   Base();
   static void init();
   // Create a single static instance of all of your subsystems
-  static subsystems::Drive *drive_;
-  static subsystems::Winch *winch_;
-  static control::OI *oi_;
+  static subsystems::Drive* drive_;
+  static subsystems::Winch* winch_;
+  static subsystems::WinchClaw* winch_claw_;
+  static subsystems::Arm* arm_;
+  static control::OI* oi_;
 };
 }  // namespace commands
 }  // namespace isobot
