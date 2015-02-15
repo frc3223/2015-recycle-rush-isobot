@@ -1,19 +1,15 @@
 #ifndef RETROBOTICS_COMMANDS_WINCH_MAINTAIN_HPP
 #define RETROBOTICS_COMMANDS_WINCH_MAINTAIN_HPP
 
-#include "base/commands_base.hpp"
+#include "base/commands_baseclean.hpp"
 
 namespace retrobotics {
 namespace isobot {
 namespace commands {
-class WinchMaintain : public Base {
+class WinchMaintain : public BaseClean {
  public:
   WinchMaintain();
-  auto Initialize() -> void;
   auto Execute() -> void;
-  auto IsFinished() -> bool;
-  auto End() -> void;
-  auto Interrupted() -> void;
 };
 }
 }

@@ -1,20 +1,16 @@
 #ifndef RETROBOTICS_COMMANDS_WINCH_ANALOG_HPP
 #define RETROBOTICS_COMMANDS_WINCH_ANALOG_HPP
 
-#include "base/commands_base.hpp"
+#include "base/commands_baseclean.hpp"
 
 namespace retrobotics {
 namespace isobot {
 namespace commands {
-class WinchAnalog : public Base {
+class WinchAnalog : public BaseClean {
  private:
  public:
   WinchAnalog();
-  auto Initialize() -> void;
   auto Execute() -> void;
-  auto IsFinished() -> bool;
-  auto End() -> void;
-  auto Interrupted() -> void;
 };
 }
 }

@@ -1,19 +1,15 @@
 #ifndef RETROBOTICS_COMMANDS_BRAKE_HPP
 #define RETROBOTICS_COMMANDS_BRAKE_HPP
 
-#include "base/commands_base.hpp"
+#include "base/commands_baseclean.hpp"
 
 namespace retrobotics {
 namespace isobot {
 namespace commands {
-class Brake : public Base {
+class Brake : public BaseClean {
  public:
   Brake();
-  auto Initialize() -> void;
   auto Execute() -> void;
-  auto IsFinished() -> bool;
-  auto End() -> void;
-  auto Interrupted() -> void;
 };
 }
 }

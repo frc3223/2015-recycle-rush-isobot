@@ -1,5 +1,5 @@
 #include "commands/brake.hpp"
-#include "base/commands_base.hpp"
+#include "base/commands_baseclean.hpp"
 #include <utility>
 #include <cmath>
 #include <algorithm>
@@ -8,11 +8,8 @@ namespace retrobotics {
 namespace isobot {
 namespace commands {
 Brake::Brake()
-    : Base{"Brake"} {
+    : BaseClean{"Brake"} {
   Requires(drive_);
-}
-
-auto Brake::Initialize() -> void {
 }
 
 auto Brake::Execute() -> void {
@@ -24,16 +21,6 @@ auto Brake::Execute() -> void {
       accel_rt.second) * (std::signbit(std::sin(accel_rt.first)) ? 1 : -1)
       * std::min(accel_rt.first, 1.)};
   drive_->set(wheels);
-}
-
-auto Brake::IsFinished() -> bool {
-  return false;
-}
-
-auto Brake::End() -> void {
-}
-
-auto Brake::Interrupted() -> void {
 }
 }
 }

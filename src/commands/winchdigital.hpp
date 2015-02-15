@@ -1,13 +1,13 @@
 #ifndef RETROBOTICS_COMMANDS_WINCH_DIGITAL_HPP
 #define RETROBOTICS_COMMANDS_WINCH_DIGITAL_HPP
 
-#include "base/commands_base.hpp"
+#include "base/commands_baseclean.hpp"
 #include "utility/smooth.hpp"
 
 namespace retrobotics {
 namespace isobot {
 namespace commands {
-class WinchDigital : public Base {
+class WinchDigital : public BaseClean {
  private:
   subsystems::WinchDir dir_;
   utility::Smooth<float> power_;
@@ -15,10 +15,7 @@ class WinchDigital : public Base {
   WinchDigital(subsystems::WinchDir dir);
   auto Initialize() -> void;
   auto Execute() -> void;
-  auto IsFinished() -> bool;
   auto done() -> void;
-  auto End() -> void;
-  auto Interrupted() -> void;
 };
 }
 }
