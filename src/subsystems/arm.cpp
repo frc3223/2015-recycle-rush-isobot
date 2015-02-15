@@ -1,5 +1,6 @@
 #include "subsystems/arm.hpp"
 #include <Commands/Subsystem.h>
+#include "commands/arm.hpp"
 
 namespace retrobotics {
 namespace isobot {
@@ -10,8 +11,7 @@ Arm::Arm()
 }
 
 auto Arm::InitDefaultCommand() -> void {
-  // Set the default command for a subsystem here.
-  //SetDefaultCommand(new MySpecialCommand());
+  SetDefaultCommand(new commands::Arm{});
 }
 
 auto Arm::set(float value) -> void {

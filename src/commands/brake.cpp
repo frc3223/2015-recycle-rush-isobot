@@ -12,11 +12,9 @@ Brake::Brake()
   Requires(drive_);
 }
 
-// Called just before this Command runs the first time
 auto Brake::Initialize() -> void {
 }
 
-// Called repeatedly when this Command is scheduled to run
 auto Brake::Execute() -> void {
   std::pair<double, double> accel_xy{oi_->accelerometer_->GetX(), oi_->accelerometer_->GetY()};
   std::pair<double, double> accel_rt{std::hypot(accel_xy.first, accel_xy.second), std::atan2(
@@ -28,17 +26,13 @@ auto Brake::Execute() -> void {
   drive_->set(wheels);
 }
 
-// Make this return true when this Command no longer needs to run execute()
 auto Brake::IsFinished() -> bool {
   return false;
 }
 
-// Called once after isFinished returns true
 auto Brake::End() -> void {
 }
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
 auto Brake::Interrupted() -> void {
 }
 }

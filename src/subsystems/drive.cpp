@@ -4,7 +4,7 @@
 #include <tuple>
 #include <utility>
 #include "commands/tankdrive.hpp"
-#include "tuple_utils.hpp"
+#include "utility/tuple.hpp"
 
 namespace retrobotics {
 namespace isobot {
@@ -26,8 +26,8 @@ auto Drive::set_wheel(float power) -> void {
 }
 
 auto Drive::set(std::tuple<float, float> powers) -> void {
-  auto wheels_powers = tuple_utils::tuple_zip(wheels_, powers);
-  tuple_utils::for_each(wheels_powers, [](auto wheel_power) {
+  auto wheels_powers = utility::tuple::tuple_zip(wheels_, powers);
+  utility::tuple::for_each(wheels_powers, [](auto wheel_power) {
     Talon* wheel = wheel_power.first;
     float power = wheel_power.second;
     wheel->Set(power);

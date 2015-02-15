@@ -6,36 +6,27 @@ namespace retrobotics {
 namespace isobot {
 namespace commands {
 Arm::Arm()
-    : Base{"Arm"} {
-  // Use Requires() here to declare subsystem dependencies
-  // eg. Requires(chassis);
+    : Base{"Arm"}, power_{0.0f, 0.1f} {
       Requires(arm_);
 }
 
-// Called just before this Command runs the first time
 auto Arm::Initialize() -> void {
-
+  power_.force(0.0f);
 }
 
-// Called repeatedly when this Command is scheduled to run
 auto Arm::Execute() -> void {
-  arm_->set(control::get<control::Arm>(oi_->main_joy_));
+  power_ = control::get<control::Arm>(oi_->main_joy_)*0.4f;
+  arm_->set(power_.value);
 }
 
-// Make this return true when this Command no longer needs to run execute()
 auto Arm::IsFinished() -> bool {
   return false;
 }
 
-// Called once after isFinished returns true
 auto Arm::End() -> void {
-
 }
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
 auto Arm::Interrupted() -> void {
-
 }
 }  // namespace commands
 }  // namespace isobot

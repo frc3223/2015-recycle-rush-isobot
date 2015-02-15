@@ -24,10 +24,10 @@ auto DualStick::analog(control::DriveRight) const -> float {
   return joy_right_->GetRawAxis(kJoyY);
 }
 auto DualStick::analog(control::Winch) const -> float {
-  return joy_left_->GetRawButton(kButtonCenter) - joy_left_->GetRawButton(kButtonDown);
+  return joy_right_->GetRawButton(kButtonCenter) - joy_right_->GetRawButton(kButtonDown);
 }
 auto DualStick::analog(control::Arm) const -> float {
-  return joy_right_->GetRawButton(kButtonCenter) - joy_right_->GetRawButton(kButtonDown);
+  return joy_left_->GetRawButton(kButtonCenter) - joy_left_->GetRawButton(kButtonDown);
 }
 auto DualStick::digital(control::Brake) const -> std::pair<Joystick*, uint32_t> {
   constexpr auto kButtonTrig = DualStick::kButtonTrig;

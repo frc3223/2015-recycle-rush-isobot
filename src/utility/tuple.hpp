@@ -5,7 +5,8 @@
 #include <utility>
 #include <type_traits>
 
-namespace tuple_utils {
+namespace utility {
+namespace tuple {
 // for_each
 
 template<std::size_t I = 0, typename FuncT, typename ... Tp>
@@ -53,8 +54,7 @@ decltype(tuple_zip_helper(t1, t2, typename gens<sizeof...(A)>::type())) {
   static_assert(sizeof...(A) == sizeof...(B), "The tuple sizes must be the same");
   return tuple_zip_helper(t1, t2, typename gens<sizeof...(A)>::type());
 }
-
-}
-  // namespace tuple_utils
+} // namespace tuple
+} // namespace utility
 
 #endif
