@@ -15,8 +15,6 @@ Drive::Drive()
 }
 
 auto Drive::InitDefaultCommand() -> void {
-  // Set the default command for a subsystem here.
-  //SetDefaultCommand(new MySpecialCommand());
   SetDefaultCommand(new commands::TankDrive{});
 }
 

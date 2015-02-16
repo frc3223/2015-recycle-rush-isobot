@@ -6,12 +6,16 @@ template<typename N>
 struct Smooth {
   N value;
   N step;
-  Smooth& operator=(N new_value) {
-    if (std::signbit(new_value)) {  // negative
-      value = std::max(value-step, new_value);
-    } else {  // positive
-      value = std::min(value+step, new_value);
-    }
+  N set(N new_value) {
+    return value =
+        (new_value >= value) ? std::min(value + step, new_value) : std::max(value - step, new_value);
+  }
+  Smooth& operator++() {
+    value += step;
+    return *this;
+  }
+  Smooth& operator--() {
+    value -= step;
     return *this;
   }
   auto force(N new_value) -> void {

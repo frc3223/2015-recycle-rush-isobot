@@ -18,10 +18,10 @@ auto WinchDigital::Initialize() -> void {
 auto WinchDigital::Execute() -> void {
   switch (dir_) {
     case subsystems::WinchDir::kUp:
-      power_ = 0.5f;
+      power_.set(0.5f);
       break;
     case subsystems::WinchDir::kDown:
-      power_ = -0.5f;
+      power_.set(-0.5f);
       break;
   }
   winch_->set(power_.value);

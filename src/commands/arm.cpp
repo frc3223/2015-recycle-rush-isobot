@@ -15,8 +15,7 @@ auto Arm::Initialize() -> void {
 }
 
 auto Arm::Execute() -> void {
-  power_ = control::get<control::Arm>(oi_->main_joy_)*0.4f;
-  arm_->set(power_.value);
+  arm_->set(power_.set(control::get<control::Arm>(oi_->main_joy_)*0.4f));
 }
 }  // namespace commands
 }  // namespace isobot

@@ -7,7 +7,6 @@ namespace isobot {
 namespace subsystems {
 Arm::Arm()
     : Subsystem{"Arm"}, motor_{new Talon{3}} {
-
 }
 
 auto Arm::InitDefaultCommand() -> void {
