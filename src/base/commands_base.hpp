@@ -15,12 +15,11 @@ namespace commands {
 /**
  * The base for all commands. All atomic commands should subclass Base.
  * Base stores creates and stores each control system. To access a
- * subsystem elsewhere in your code in your code use Base.examplesubsystem
+ * subsystem elsewhere in your code in your code use Base.subsystem_
  */
 class Base : public Command {
  public:
   Base(char const *name);
-  Base();
   static auto init() -> void;
   // Create a single static instance of all of your subsystems
   static subsystems::Drive* drive_;
